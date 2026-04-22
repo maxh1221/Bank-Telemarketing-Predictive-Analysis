@@ -11,16 +11,27 @@ Source: https://archive.ics.uci.edu/dataset/222/bank+marketing
 
 Contains 45,211 observations and 17 variables (16 input + 1 output). Our target variable was the outcome of whether a client subscribes or not in a specific instance (yes/no). Since our target variable is binary in nature, we elected to utilize classification modeling as opposed to regression modeling since we are measuring discrete values.
 
+Using our three classification models, we achieved the following results below, utilizing a 60/40 train/test split:
 | Model | Accuracy | Sensitivity | Specificity |
 |---|---|---|---|
 | K-Nearest Neighbors | 89.8% | 28.4% | 98.0% |
 | Logistic Regression | 90.0% | 35.1% | 97.4% |
 | Classification Tree | 90.3% | 46.0% | 96.1% |
 
+We found that a classification tree performed best overall, not just in terms of total accuracy, which is a misleading metric on its own here due to the heavily imbalanced dataset. The most meaningful metric in this case is sensitivity, since this is the correct identification of clients that actually subscribe as a result of telemarketing campaign efforts.
+
 ### Key Findings 
 
-- Call duration showed the strongest separation between subscribers and non-subscribers. Those who subscribed had substantially longer calls on average .
+- Call duration showed the strongest separation between subscribers and non-subscribers. Those who subscribed had substantially longer calls on average.
 
 - Campaign contacts are slightly lower for subscribers, and over-contacting is associated with reduced conversion.  
 
-- Account balance and age show modest differences between groups but are not strongly strong correlators on their own  .
+- Account balance and age show modest differences between groups but are not strongly strong correlators on their own.
+
+### Business Recommendations
+
+- Focus efforts on previous subscribers
+
+- Cap outreach at 2–3 contacts per campaign cycle
+
+- Improve model sensitivity metric to accomodate dataset imbalance (sample more of the smaller class or adjust prediction threshold, for example).
